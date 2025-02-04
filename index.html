@@ -1453,7 +1453,8 @@
         </div>
 
     <button type="button" onclick="calculateResult()">Submit</button>
-    </form
+    </form>
+
     <div id="result" class="result"></div>
     <div id="scoreboard" class="scoreboard"></div>
     <div id="recommendations" class="recommendations"></div>
@@ -1496,6 +1497,7 @@
                 q181: 'b', q182: 'b', q183: 'b', q184: 'a', q185: 'b', q186: 'b', q187: 'b', q188: 'a', q189: 'b', q190: 'b',
                 q191: 'b', q192: 'b', q193: 'b', q194: 'a', q195: 'b', q196: 'b', q197: 'b', q198: 'a', q199: 'b', q200: 'a'
             };
+    
             for (let key in answers) {
                 let selected = document.querySelector(`input[name=${key}]:checked`);
                 if (selected && selected.value === answers[key]) {
@@ -1506,17 +1508,23 @@
                         phaseScores.phase2++;
                     } else if (key.startsWith('q101') || key.startsWith('q102') || key.startsWith('q103') || key.startsWith('q104') || key.startsWith('q105') || key.startsWith('q106') || key.startsWith('q107') || key.startsWith('q108') || key.startsWith('q109') || key.startsWith('q110')) {
                         phaseScores.phase3++;
-                    } else if (key.startsWith('q151') || key.startsWith('q152') || key.startsWith('q153') || key.startsWith('q154') || key.startsWith('q155') || key.startsWith('q156') || key.startsWith('q157') || key.startsWith('q158') || key.startsWith('q159') || key.startsWith('q160')) {
+                    } else if (key.startsWith('q151') || key.startsWith('q152') || key.startsWith('q153') || key.startsWith('q154') || key.startsWith('q155') || key.startsWith('q156') || key.startsWith('q157') || key.startsWith('q158') || key.startsWith('q159') || key.startsWith('q200')) {
                         phaseScores.phase4++;
                     }
+                } else {
+                    if (key.startsWith('q1') || key.startsWith('q2')) roadmapCoverage.push('Phase 1: Foundations');
+                    if (key.startsWith('q51') || key.startsWith('q52')) roadmapCoverage.push('Phase 2: Core Cybersecurity Skills');
+                    if (key.startsWith('q101') || key.startsWith('q102')) roadmapCoverage.push('Phase 3: Specialization');
+                    if (key.startsWith('q151') || key.startsWith('q200')) roadmapCoverage.push('Phase 4: Real-World Experience');
                 }
             }
+    
             document.getElementById('result').innerHTML = `Your Score: ${score}/200`;
             let scoreboardHTML = `<h3>Scoreboard</h3>
                                   <table>
                                       <tr>
                                           <th>Phase</th>
-                                          <th > Score</th>
+                                          <th>Score</th>
                                           <th>Status</th>
                                       </tr>
                                       <tr class="${phaseScores.phase1 >= 40 ? 'pass' : 'fail'}">
@@ -1543,6 +1551,6 @@
             document.getElementById('scoreboard').innerHTML = scoreboardHTML;
         }
     </script>
-
+    
 </body>
 </html>
