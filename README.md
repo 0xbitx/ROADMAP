@@ -181,6 +181,8 @@ Additional Tools to Learn
   * Wireless Security: Aircrack-ng, Kismet
   * OSINT Tools: Maltego, Shodan, theHarvester
 
+[Roadmap Knowledge Exam](https://0xbitx.github.io/ROADMAP/)
+
 ## Conclusion
 
 This roadmap provides a structured approach to becoming a cybersecurity professional. Stay curious, keep learning, and engage with the cybersecurity community.
